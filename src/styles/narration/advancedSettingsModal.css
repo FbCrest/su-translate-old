@@ -1,0 +1,166 @@
+/* Advanced Settings Modal Styles */
+
+.advanced-settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; /* Increased from 1000 to 99999 to ensure it appears above other elements */
+  backdrop-filter: blur(8px);
+  isolation: isolate; /* Create a new stacking context */
+}
+
+.advanced-settings-modal {
+  background-color: var(--md-surface-1);
+  border-radius: 32px;
+  box-shadow: var(--md-elevation-level4);
+  width: 90%;
+  max-width: 1300px; /* Increased to accommodate more columns */
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  animation: modal-appear 0.4s var(--md-easing-emphasized);
+  border: 1px solid rgba(var(--md-outline-variant-rgb), 0.5);
+  overflow: hidden;
+  position: relative; /* Ensure proper stacking context */
+  z-index: 1; /* Ensure it's above the overlay */
+}
+
+.advanced-settings-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 16px 24px;
+}
+
+.advanced-settings-modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--md-on-surface);
+  letter-spacing: 0.25px;
+}
+
+/* Close button styles moved to src/components/common/CloseButton.css */
+
+.advanced-settings-modal-content {
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  /* Add scrollbar styling for better appearance */
+  scrollbar-width: thin;
+  scrollbar-color: var(--md-outline-variant) var(--md-surface-1);
+}
+
+/* Webkit scrollbar styling */
+.advanced-settings-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.advanced-settings-modal-content::-webkit-scrollbar-track {
+  background: var(--md-surface-1);
+  border-radius: 3px;
+}
+
+.advanced-settings-modal-content::-webkit-scrollbar-thumb {
+  background-color: var(--md-outline-variant);
+  border-radius: 3px;
+  border: 1px solid var(--md-surface-1);
+}
+
+.advanced-settings-modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-outline);
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"] .advanced-settings-modal-content {
+  scrollbar-color: var(--md-outline) var(--md-surface-2);
+}
+
+[data-theme="dark"] .advanced-settings-modal-content::-webkit-scrollbar-track {
+  background: var(--md-surface-2);
+}
+
+[data-theme="dark"] .advanced-settings-modal-content::-webkit-scrollbar-thumb {
+  background-color: var(--md-outline);
+  border: 1px solid var(--md-surface-2);
+}
+
+.advanced-settings-modal-content .advanced-settings {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  margin-bottom: 0;
+  padding: 0.75rem;
+}
+
+.advanced-settings-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 16px 16px 24px;
+  gap: 0.75rem;
+}
+
+/* Advanced Settings Button */
+.advanced-settings-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(var(--md-tertiary-rgb), 0.1);
+  color: var(--md-tertiary);
+  border: 1px solid rgba(var(--md-tertiary-rgb), 0.2);
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--md-duration-medium2) var(--md-easing-standard);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.advanced-settings-button:hover {
+  background-color: var(--md-tertiary-container);
+  color: var(--md-on-tertiary-container);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+  border-color: transparent;
+}
+
+.advanced-settings-button:active {
+  transform: translateY(0);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.advanced-settings-button svg {
+  flex-shrink: 0;
+}
+
+/* Animation */
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .advanced-settings-modal {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .advanced-settings-modal-content .advanced-settings {
+    padding: 0.5rem;
+  }
+}

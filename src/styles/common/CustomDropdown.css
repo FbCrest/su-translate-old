@@ -1,0 +1,256 @@
+/* Custom Dropdown Component - Material Design 3 */
+/* Add this to your CustomDropdown.css file */
+
+.custom-dropdown.is-animating-selection .custom-dropdown-button .dropdown-value {
+  /* Hide the button's original text during the flight animation */
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  min-width: 120px;
+}
+
+.custom-dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: var(--md-surface-1);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-pill);
+  color: var(--md-on-surface);
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: 42px;
+  box-sizing: border-box;
+  box-shadow: var(--md-elevation-level1);
+  gap: 8px;
+}
+
+.custom-dropdown.open .custom-dropdown-button {
+  border-color: var(--md-primary);
+}
+
+.custom-dropdown-button:hover:not(:disabled) {
+  background-color: var(--md-surface-2);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.dropdown-value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.dropdown-arrow {
+  flex-shrink: 0;
+  color: var(--md-on-surface-variant);
+}
+
+/* Clipper element handles animations */
+.custom-dropdown-clipper {
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+  height: var(--menu-height, 200px);
+  will-change: width, clip-path;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              clip-path 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-dropdown-clipper > .custom-dropdown-menu {
+  pointer-events: auto;
+}
+
+/* Inner menu holds the styles */
+.custom-dropdown-menu {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--md-surface-1);
+  border-radius: 18px;
+  overflow: hidden;
+  
+  /* FIX: Start with shadow and border transparent to hide artifacts during animation */
+  border: 1px solid transparent;
+  box-shadow: 0 12px 28px transparent, 0 8px 12px transparent, 0 1px 2px transparent;
+  
+  /* FIX: Add a transition for the border and shadow */
+  transition: border-color 150ms ease-out 100ms, box-shadow 150ms ease-out 100ms;
+}
+
+/* FIX: When the menu is fully open, fade in the border and shadow */
+.custom-dropdown-clipper.is-open .custom-dropdown-menu {
+  border-color: var(--md-outline-variant);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18),
+              0 8px 12px rgba(0, 0, 0, 0.12),
+              0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Smoothly fade in options */
+.custom-dropdown-clipper.is-open .dropdown-option:not(.disabled) {
+  animation: fade-in-option 200ms cubic-bezier(0.4, 0, 0.2, 1) 50ms backwards;
+}
+
+.custom-dropdown-clipper.is-open .dropdown-option.disabled {
+  animation: fade-in-option-disabled 200ms cubic-bezier(0.4, 0, 0.2, 1) 50ms backwards;
+}
+
+@keyframes fade-in-option {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-option-disabled {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 0.7; transform: translateY(0); }
+}
+
+/* Closing animations */
+.custom-dropdown-clipper.is-closing-with-selection {
+  transition: clip-path 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.custom-dropdown-clipper.is-closing-with-selection .dropdown-option {
+  transition: opacity 200ms ease;
+}
+.custom-dropdown-clipper.is-closing-with-scrollbar {
+  transition: opacity 200ms ease;
+}
+
+.dropdown-options-list {
+  height: 100%;
+  max-height: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  padding: 4px 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.dropdown-options-list::-webkit-scrollbar {
+  display: none !important;
+}
+
+.custom-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 8px; right: 5px; bottom: 8px; width: 4px;
+  background: rgba(var(--md-outline-variant-rgb, 121, 116, 126), 0.15);
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.custom-scrollbar-thumb {
+  position: absolute;
+  right: 5px; width: 4px;
+  background: rgba(var(--md-primary-rgb, 103, 80, 164), 0.6);
+  border-radius: 50px;
+  opacity: 0;
+  transition: opacity 0.2s ease, width 0.2s ease, right 0.2s ease;
+  pointer-events: auto;
+  z-index: 10;
+  cursor: pointer;
+  min-height: 20px;
+}
+
+.custom-dropdown-menu.has-scrollable-content:hover::before { opacity: 1; }
+.custom-dropdown-menu:hover .custom-scrollbar-thumb { opacity: 1; }
+.custom-scrollbar-thumb:hover, .custom-scrollbar-thumb.dragging {
+  width: 6px;
+  right: 4px;
+  background: var(--md-primary) !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--md-on-surface);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 48px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-option:hover:not(.disabled) { background-color: var(--md-surface-2); }
+.dropdown-option.selected {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  font-weight: 600;
+}
+
+.dropdown-option.disabled {
+  cursor: not-allowed;
+  color: var(--md-on-surface-variant);
+}
+
+/* Font morphing animations */
+.dropdown-option.morphing-item {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              font-size 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              font-weight 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              letter-spacing 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.dropdown-option.morphing-from-button { animation: morph-from-button 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+.dropdown-option.morphing-to-button { animation: morph-to-button 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+
+@keyframes morph-from-button {
+  0% { font-size: 0.9rem; font-weight: 500; }
+  100% { font-size: 0.95rem; font-weight: 600; }
+}
+@keyframes morph-to-button {
+  0% { font-size: 0.95rem; font-weight: 600; }
+  100% { font-size: 0.9rem; font-weight: 500; }
+}
+
+/* Language option specific styles */
+.lang-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-option .flag {
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1;
+}
+.lang-option .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

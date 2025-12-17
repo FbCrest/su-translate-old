@@ -1,0 +1,63 @@
+/* Volume Visualizer Styles */
+
+.volume-visualizer {
+  width: 100%;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  /* Transparent background */
+  background-color: transparent;
+  /* Add a subtle border that works in both light and dark mode */
+  border: 1px solid rgba(var(--md-outline-variant-rgb), 0.2);
+}
+
+/* No special dark mode background needed */
+
+.volume-visualizer canvas {
+  display: block;
+  background-color: transparent;
+}
+
+.volume-visualizer-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-on-surface);
+  font-size: 12px;
+  font-weight: 500;
+  /* Add a subtle text shadow for better readability in both themes */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode specific styles for loading message */
+[data-theme="dark"] .volume-visualizer-loading {
+  color: rgba(255, 255, 255, 0.9);
+  /* Brighter text shadow for dark mode */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.volume-visualizer-no-audio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--md-surface-variant-rgb), 0.1);
+  color: var(--md-outline);
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 4px;
+}
+
+/* Ensure the subtitle timeline has proper spacing when volume visualizer is present */
+.subtitle-timeline {
+  margin-bottom: 2px;
+}

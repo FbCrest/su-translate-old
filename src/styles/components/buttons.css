@@ -1,0 +1,687 @@
+/* buttons.css - Styles for various buttons */
+
+/* Generate button */
+.generate-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+.generate-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.generate-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.generate-btn:hover svg {
+  transform: translateY(2px);
+}
+
+/* Browse button for file upload */
+.browse-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.browse-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--primary-color-hover, var(--primary-color));
+}
+
+.browse-button:active {
+  transform: translateY(0);
+}
+
+/* Material Design 3 pill-shaped remove button */
+.remove-file-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--md-shape-pill);
+  border: none;
+  background-color: var(--md-error-container);
+  color: var(--md-on-error-container);
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-height);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized);
+  position: relative;
+  overflow: hidden;
+  height: 36px; /* Fixed height for consistency */
+}
+
+/* State layer for hover effect */
+.remove-file-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: var(--md-shape-pill);
+}
+
+.remove-file-btn:hover::before {
+  background-color: rgba(0, 0, 0, var(--md-state-hover-opacity));
+}
+
+.remove-file-btn:hover {
+  transform: translateY(-2px);
+}
+
+.remove-file-btn:active {
+  transform: translateY(0);
+}
+
+/* Material Design 3 download video button */
+.download-video-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  margin-top: 0.75rem;
+  background-color: transparent;
+  color: var(--md-primary);
+  border: 1px solid var(--md-outline);
+  border-radius: var(--md-shape-pill);
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-height);
+  font-weight: var(--md-label-medium-weight);
+  cursor: pointer;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard),
+              border-color var(--md-duration-medium2) var(--md-easing-standard),
+              box-shadow var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized);
+  box-shadow: var(--md-elevation-level1);
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+  height: 36px; /* Fixed height for consistency */
+}
+
+/* State layer for hover effect */
+.download-video-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: var(--md-shape-pill);
+}
+
+.download-video-btn:hover::before {
+  background-color: color-mix(in srgb, var(--md-primary), transparent var(--md-state-hover-opacity));
+}
+
+.download-video-btn:active::before {
+  background-color: color-mix(in srgb, var(--md-primary), transparent var(--md-state-pressed-opacity));
+}
+
+.download-video-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.download-video-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.download-video-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--md-duration-medium3) var(--md-easing-emphasized);
+}
+
+.download-video-btn:hover svg {
+  transform: translateY(2px);
+}
+
+/* Material Design 3 search download button */
+.search-download-btn {
+  margin-top: 0;
+  margin-left: 0.75rem;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: var(--md-elevation-level1);
+  background-color: transparent;
+  color: var(--md-primary);
+  border: 1px solid var(--md-outline);
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard),
+              border-color var(--md-duration-medium2) var(--md-easing-standard),
+              box-shadow var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* State layer for hover effect */
+.search-download-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.search-download-btn:hover::before {
+  background-color: color-mix(in srgb, var(--md-primary), transparent var(--md-state-hover-opacity));
+}
+
+.search-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+/* Clear button for inputs */
+.clear-url-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--md-on-surface-variant);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-url-btn:hover {
+  background-color: color-mix(in srgb, var(--md-on-surface-variant), transparent 90%);
+  color: var(--md-on-surface);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+/* ========================================
+   CENTRALIZED BUTTON SYSTEM - Material Design 3
+   ======================================== */
+
+/* Base button styles - shared foundation */
+.btn-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: var(--md-shape-pill);
+  font-family: 'Google Sans', 'Open Sans', 'Segoe UI', sans-serif;
+  font-weight: var(--md-label-large-weight);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              color var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized),
+              box-shadow var(--md-duration-medium2) var(--md-easing-standard);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Button sizes */
+.btn-large {
+  padding: 12px 24px;
+  height: 44px;
+  font-size: var(--md-label-large-size);
+  line-height: var(--md-label-large-height);
+  min-width: 180px;
+}
+
+.btn-medium {
+  padding: 10px 20px;
+  height: 40px;
+  font-size: var(--md-label-medium-size);
+  line-height: var(--md-label-medium-height);
+  min-width: 120px;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  height: 36px;
+  line-height: var(--md-label-small-height);
+  min-width: 100px;
+}
+
+.btn-compact {
+  padding: 6px 12px;
+  height: 32px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+/* Button variants */
+.btn-primary {
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-primary), black 10%);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.btn-success {
+  background-color: var(--md-success);
+  color: var(--md-on-success);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: var(--md-success-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.btn-secondary {
+  background-color: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--md-secondary-container), black 10%);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.btn-outlined {
+  background-color: transparent;
+  color: var(--md-primary);
+  border: 1px solid var(--md-outline);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.btn-outlined:hover:not(:disabled) {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-color: var(--md-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+/* Disabled state for all buttons */
+.btn-base:disabled {
+  background-color: var(--md-surface-variant);
+  color: var(--md-on-surface-variant);
+  opacity: 0.38;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Icon styling within buttons */
+.btn-base svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  transition: transform var(--md-duration-medium3) var(--md-easing-emphasized);
+}
+
+.btn-base:hover:not(:disabled) svg {
+  transform: translateY(1px);
+}
+
+/* Specific download button classes */
+.download-btn-primary {
+  /* Primary download button - main download center */
+}
+
+.download-btn-success {
+  /* Success download button - completed downloads */
+}
+
+.download-btn-secondary {
+  /* Secondary download button - alternative downloads */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .btn-large {
+    padding: 10px 20px;
+    height: 40px;
+    min-width: 140px;
+    font-size: var(--md-label-medium-size);
+  }
+
+  .btn-medium {
+    padding: 8px 16px;
+    height: 36px;
+    min-width: 100px;
+    font-size: var(--md-label-small-size);
+  }
+
+  .btn-small {
+    padding: 6px 12px;
+    height: 32px;
+    min-width: 80px;
+    font-size: 0.75rem;
+  }
+
+  .btn-compact {
+    padding: 4px 8px;
+    height: 28px;
+    min-width: 60px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ========================================
+   CENTRALIZED RADIO SYSTEM - Material Design 3
+   ======================================== */
+
+/* Base radio group styles */
+.radio-group-base {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.radio-group-vertical {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-group-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.radio-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.radio-group-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Base radio option styles */
+.radio-option-base {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+              transform var(--md-duration-medium2) var(--md-easing-emphasized),
+              box-shadow var(--md-duration-medium2) var(--md-easing-standard);
+  user-select: none;
+}
+
+/* Hide default radio input */
+.radio-option-base input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* Radio option variants */
+.radio-option-card {
+  padding: 8px 12px;
+  border-radius: var(--md-shape-medium);
+  background-color: var(--md-surface-2);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.radio-option-card:hover {
+  background-color: var(--md-surface-3);
+  transform: translateY(-1px);
+}
+
+.radio-option-pill {
+  padding: 8px 16px;
+  height: 36px;
+  background-color: var(--md-surface-1);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-pill);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.radio-option-pill:hover {
+  background-color: var(--md-surface-2);
+  box-shadow: var(--md-elevation-level2);
+  transform: translateY(-2px);
+}
+
+.radio-option-minimal {
+  padding: 4px 8px;
+  border-radius: var(--md-shape-small);
+}
+
+.radio-option-minimal:hover {
+  background-color: var(--md-surface-2);
+}
+
+/* Checked states */
+.radio-option-base input[type="radio"]:checked ~ .radio-option-card,
+.radio-option-card.checked {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-color: var(--md-primary);
+}
+
+.radio-option-base input[type="radio"]:checked ~ .radio-option-pill,
+.radio-option-pill.checked {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-color: var(--md-primary);
+}
+
+.radio-option-base input[type="radio"]:checked ~ .radio-option-minimal,
+.radio-option-minimal.checked {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+}
+
+
+
+/* Disabled states */
+.radio-option-base.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.radio-option-base input[type="radio"]:disabled + label,
+.radio-option-base.disabled label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Focus states for accessibility */
+.radio-option-base input[type="radio"]:focus + label {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive radio styles */
+@media (max-width: 768px) {
+  .radio-group-horizontal {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .radio-group-grid,
+  .radio-group-two-columns {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .radio-option-pill {
+    padding: 6px 12px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .radio-option-card {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .radio-option-card,
+  .radio-option-pill,
+  .radio-option-minimal {
+    border-width: 2px;
+  }
+
+  .radio-option-base input[type="radio"]:checked + label {
+    border-width: 2px;
+    border-color: var(--md-primary);
+  }
+}
+
+
+
+
+/* Legacy pill buttons used across various sections (migrated from VideoRenderingSection.css) */
+.pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--md-duration-medium2) var(--md-easing-standard);
+  background-color: rgba(var(--md-surface-variant-rgb), 0.5);
+  color: var(--md-on-surface-variant);
+  border: 1px solid transparent;
+  height: 42px;
+  box-sizing: border-box;
+  box-shadow: var(--md-elevation-level1);
+}
+
+.pill-button.primary:hover:not(:disabled) {
+  background-color: var(--md-primary-hover, var(--md-primary));
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.pill-button.secondary {
+  background-color: rgba(var(--md-surface-variant-rgb), 0.5);
+  color: var(--md-on-surface-variant);
+  border: 1px solid var(--md-outline-variant);
+}
+
+.pill-button.secondary:hover:not(:disabled) {
+  background-color: var(--md-surface-variant);
+  transform: translateY(-1px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.selected-video-info .pill-button { flex-shrink: 0; }
+
+.pill-button.cancel {
+  background-color: rgba(var(--md-error-rgb), 0.1);
+  color: var(--md-error);
+  border: 1px solid rgba(var(--md-error-rgb), 0.2);
+}
+
+.pill-button.cancel:hover:not(:disabled) {
+  background-color: var(--md-error-container);
+  color: var(--md-on-error-container);
+}
+
+.pill-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}

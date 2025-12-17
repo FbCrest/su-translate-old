@@ -1,0 +1,642 @@
+/* Standard slider component styles based on Figma design with Material 3 specifications */
+
+/* Standard slider container - flexible width with Figma default */
+.standard-slider-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  width: 100%; /* Flexible width - adapts to parent container */
+  min-width: 60px; /* Very small minimum width for tight spaces */
+  max-width: 354px; /* Figma default as maximum */
+  height: auto; /* hug content */
+  position: relative;
+}
+
+/* Full width variant - when parent wants to control exact width */
+.standard-slider-container.width-full {
+  width: 354px; /* Figma exact width */
+  min-width: 354px;
+  max-width: 354px;
+}
+
+/* Compact variant - for constrained spaces like speed controls */
+.standard-slider-container.width-compact {
+  width: 100px;
+  min-width: 60px;
+  max-width: 120px;
+}
+
+/* Auto variant - fills available space (default behavior) */
+.standard-slider-container.width-auto {
+  width: 100%;
+  min-width: 60px; /* Very small for tight spaces */
+  max-width: none; /* No maximum constraint */
+}
+
+/* Mini variant - for extremely tight spaces like customization rows */
+.standard-slider-container.width-mini {
+  width: 80px;
+  min-width: 60px;
+  max-width: 100px;
+}
+
+/* Slider track container - holds active and inactive tracks with gaps */
+.standard-slider-track-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  height: 44px; /* Full height to accommodate handle */
+  gap: 2px; /* Small gap between active track, handle, and inactive track */
+  cursor: pointer; /* Make entire track clickable */
+  user-select: none; /* Prevent text selection during drag */
+}
+
+/* Active track - left portion with Material 3 primary color */
+.standard-slider-active-track {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  height: 16px; /* Proper Material 3 track height */
+  min-width: 0; /* Allow flex shrinking */
+  margin-right: 1px; /* Small gap before handle */
+  transition: flex-grow 0.2s cubic-bezier(0.2, 0, 0, 1); /* Smooth snapping animation */
+}
+
+.standard-slider-active-track .track {
+  width: 100%;
+  height: 100%;
+  background-color: var(--md-secondary, #2979FF); /* Use your blue secondary color */
+  border-radius: 16px 2px 2px 16px; /* Figma design: rounded start, small radius at handle */
+}
+
+/* Inactive track - right portion with Material 3 secondary color */
+.standard-slider-inactive-track {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  height: 16px; /* Proper Material 3 track height */
+  min-width: 0; /* Allow flex shrinking */
+  margin-left: 1px; /* Small gap after handle */
+  transition: flex-grow 0.2s cubic-bezier(0.2, 0, 0, 1); /* Smooth snapping animation */
+}
+
+.standard-slider-inactive-track .track {
+  width: 100%;
+  height: 100%;
+  background-color: var(--md-outline-variant, #CAC4D0); /* Use your outline variant color */
+  border-radius: 2px 16px 16px 2px; /* Figma design: small radius at handle, rounded end */
+}
+
+
+/* Pressed/dragged state - horizontal: handle becomes thinner (width) */
+.standard-slider-container.orientation-horizontal.dragging .standard-slider-handle,
+.standard-slider-container.orientation-Horizontal.dragging .standard-slider-handle {
+  width: 2px; /* Thinner when dragging (horizontal) */
+  height: 36px; /* Same height */
+  border-radius: 1px; /* Adjust border radius for thinner width */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Value badge that appears above handle when dragging */
+.standard-slider-value-badge {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background-color: var(--md-surface-container-highest, #EBE1F4);
+  color: var(--md-on-surface, #1C1B1F);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-50%) translateY(4px);
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  pointer-events: none;
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Show badge when dragging */
+.standard-slider-container.dragging .standard-slider-value-badge {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Track stop - small dot indicator */
+.standard-slider-track-stop {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* Position controlled by JavaScript */
+}
+
+.standard-slider-track-stop .dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--md-outline, #79747E);
+  border-radius: 50%;
+}
+
+/* End stop - dot at the end of inactive track (Material Design 3) */
+.standard-slider-end-stop {
+  position: absolute;
+  right: 6px; /* 6px from the end of the track */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: var(--md-outline, #79747E);
+  border-radius: 50%;
+  z-index: 5;
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Hide end stop when handle is near the end (>85% value) */
+.standard-slider-end-stop.hidden {
+  opacity: 0;
+}
+
+/* Hidden input for accessibility only - not used for interaction */
+.standard-slider-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none; /* Disable all pointer events */
+  margin: 0;
+  padding: 0;
+  z-index: -1; /* Behind visual elements */
+  -webkit-appearance: none; /* Remove webkit styling to prevent ghost effects */
+  appearance: none; /* Remove native styling to prevent ghost effects */
+  background: transparent; /* Ensure no background shows through */
+}
+
+/* Remove webkit slider styling that can cause ghost effects */
+.standard-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.standard-slider-input::-webkit-slider-track {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  opacity: 0;
+}
+
+/* Remove Firefox range styling */
+.standard-slider-input::-moz-range-thumb {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  background: transparent;
+}
+
+.standard-slider-input::-moz-range-track {
+  opacity: 0;
+  background: transparent;
+}
+
+/* Hover effects (horizontal only) */
+.standard-slider-container.orientation-horizontal .standard-slider-handle:hover,
+.standard-slider-container.orientation-Horizontal .standard-slider-handle:hover {
+  width: 6px; /* Slightly wider on hover */
+  box-shadow: 0 2px 8px rgba(41, 121, 255, 0.3); /* Blue shadow */
+}
+
+/* Disable transitions during dragging for instant response */
+.standard-slider-container.dragging {
+  cursor: grabbing !important;
+}
+
+.standard-slider-container.dragging .standard-slider-handle {
+  transition: none !important;
+  cursor: grabbing !important;
+}
+
+.standard-slider-container.dragging .standard-slider-active-track {
+  transition: none !important;
+}
+
+.standard-slider-container.dragging .standard-slider-inactive-track {
+  transition: none !important;
+}
+
+.standard-slider-container.dragging .standard-slider-track-container {
+  cursor: grabbing !important;
+}
+
+/* Enable smooth transitions during snapping animation */
+.standard-slider-container.snapping .standard-slider-active-track {
+  transition: flex-grow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.standard-slider-container.snapping .standard-slider-inactive-track {
+  transition: flex-grow 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.standard-slider-container.snapping .standard-slider-handle {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.standard-slider-container.dragging .standard-slider-active-track {
+  transition: none !important;
+}
+
+/* State variants - support both lowercase and Figma capitalized */
+.standard-slider-container.disabled,
+.standard-slider-container.state-disabled,
+.standard-slider-container.state-Disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.standard-slider-container.disabled .standard-slider-handle,
+.standard-slider-container.state-disabled .standard-slider-handle,
+.standard-slider-container.state-Disabled .standard-slider-handle {
+  cursor: not-allowed;
+}
+
+.standard-slider-container.disabled .standard-slider-input,
+.standard-slider-container.state-disabled .standard-slider-input,
+.standard-slider-container.state-Disabled .standard-slider-input {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* Global disabled appearance for StandardSlider (consistent across app) */
+.standard-slider-container.disabled,
+.standard-slider-container.state-disabled,
+.standard-slider-container.state-Disabled {
+  position: relative;
+  overflow: hidden;
+  background: none !important;
+  filter: grayscale(50%);
+  opacity: 0.65; /* subtle global dim */
+}
+
+.standard-slider-container.disabled::after,
+.standard-slider-container.state-disabled::after,
+.standard-slider-container.state-Disabled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(var(--md-surface-rgb, 255, 255, 255), 0.05);
+  z-index: 3;
+  pointer-events: none; /* do not block interactions (though disabled anyway) */
+}
+
+.standard-slider-container.disabled .standard-slider-active-track,
+.standard-slider-container.state-disabled .standard-slider-active-track,
+.standard-slider-container.state-Disabled .standard-slider-active-track {
+  opacity: 0.35 !important; /* ensure track looks disabled */
+}
+
+.standard-slider-container.disabled .standard-slider-handle,
+.standard-slider-container.state-disabled .standard-slider-handle,
+.standard-slider-container.state-Disabled .standard-slider-handle {
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+
+
+/* Size + Width combinations for specific control */
+.standard-slider-container.width-auto.size-small,
+.standard-slider-container.width-auto.size-Small {
+  max-width: 400px;
+}
+
+.standard-slider-container.width-auto.size-medium,
+.standard-slider-container.width-auto.size-Medium {
+  max-width: 480px;
+}
+
+.standard-slider-container.width-auto.size-large,
+.standard-slider-container.width-auto.size-Large {
+  max-width: 560px;
+}
+
+/* Orientation variants - support both lowercase and Figma capitalized */
+.standard-slider-container.orientation-vertical,
+.standard-slider-container.orientation-Vertical {
+  flex-direction: column;
+  width: 100%; /* Fill the available width of the parent */
+  height: 100%; /* Fill the available height of the parent */
+}
+
+.standard-slider-container.orientation-vertical .standard-slider-track-container,
+.standard-slider-container.orientation-Vertical .standard-slider-track-container {
+  flex-direction: column;
+  width: 100%; /* Let parent control width; inner track will size itself */
+  height: 100%;
+}
+
+.standard-slider-container.orientation-vertical .standard-slider-handle,
+.standard-slider-container.orientation-Vertical .standard-slider-handle {
+  width: 36px; /* Match horizontal handle height for visual consistency */
+  height: 4px; /* Thin horizontal bar */
+  transform: none; /* No rotation/translation needed */
+}
+
+/* Vertical-specific layout fixes */
+.standard-slider-container.orientation-vertical .standard-slider-active-track,
+.standard-slider-container.orientation-Vertical .standard-slider-active-track {
+  width: 16px;
+  height: auto; /* Allow flex to control height */
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 1px; /* Gap from handle above (because of column-reverse) */
+}
+
+.standard-slider-container.orientation-vertical .standard-slider-inactive-track,
+.standard-slider-container.orientation-Vertical .standard-slider-inactive-track {
+  width: 16px;
+  height: auto; /* Allow flex to control height */
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1px; /* Gap from handle below (because of column-reverse) */
+}
+
+/* Vertical border-radius corrections for tracks */
+.standard-slider-container.orientation-vertical .standard-slider-active-track .track,
+.standard-slider-container.orientation-Vertical .standard-slider-active-track .track {
+  /* Rounded at the bottom (start), small radius near handle (top) */
+  border-radius: 2px 2px 16px 16px;
+}
+
+.standard-slider-container.orientation-vertical .standard-slider-inactive-track .track,
+.standard-slider-container.orientation-Vertical .standard-slider-inactive-track .track {
+  /* Rounded at the top (end), small radius near handle (bottom) */
+  border-radius: 16px 16px 2px 2px;
+}
+
+/* Range-specific vertical radii */
+.standard-slider-container.orientation-vertical.range-slider .standard-slider-inactive-track .track.start,
+.standard-slider-container.orientation-Vertical.range-slider .standard-slider-inactive-track .track.start {
+  /* Start segment is at the bottom in column-reverse */
+  border-radius: 2px 2px 16px 16px;
+}
+
+.standard-slider-container.orientation-vertical.range-slider .standard-slider-inactive-track .track.end,
+.standard-slider-container.orientation-Vertical.range-slider .standard-slider-inactive-track .track.end {
+  border-radius: 16px 16px 2px 2px;
+}
+
+
+/* Vertical handle interaction sizing */
+.standard-slider-container.orientation-vertical .standard-slider-handle,
+.standard-slider-container.orientation-Vertical .standard-slider-handle {
+  /* Keep width as defined earlier (44px or container-constrained); do not override with 100% */
+  height: 4px;
+}
+
+.standard-slider-container.orientation-vertical .standard-slider-handle:hover,
+.standard-slider-container.orientation-Vertical .standard-slider-handle:hover {
+  height: 6px; /* Slightly thicker on hover */
+}
+
+.standard-slider-container.orientation-vertical.dragging .standard-slider-handle,
+.standard-slider-container.orientation-Vertical.dragging .standard-slider-handle {
+  height: 2px; /* Thinner when dragging */
+}
+
+/* Vertical start/end stop positioning */
+.standard-slider-container.orientation-vertical .standard-slider-end-stop,
+.standard-slider-container.orientation-Vertical .standard-slider-end-stop {
+  top: 6px; /* 6px from the top */
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.standard-slider-container.orientation-vertical .standard-slider-start-stop,
+.standard-slider-container.orientation-Vertical .standard-slider-start-stop {
+  bottom: 6px; /* 6px from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* Value indicator - shown when enabled */
+.standard-slider-value-indicator {
+  min-width: 50px; /* Smaller minimum width, closer to track */
+  font-size: 0.9rem;
+  color: #6750A4; /* Figma primary color */
+  font-weight: 500;
+  text-align: right;
+  flex-shrink: 0; /* Don't allow shrinking */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Slider with value container - adjusted for StandardSlider */
+.slider-with-value {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 420px; /* Reduced gap: StandardSlider (354px) + gap (8px) + value (50px) */
+  gap: 8px; /* Smaller gap for closer spacing */
+  height: 36px; /* Match Figma height */
+}
+
+
+.custom-slider-track {
+  /* Legacy support - map to new structure */
+  display: none;
+}
+
+.custom-slider-fill {
+  /* Legacy support - map to new structure */
+  display: none;
+}
+
+.custom-slider-thumb {
+  /* Legacy support - map to new structure */
+  display: none;
+}
+
+
+.slider-value-display {
+  /* Legacy support - compact value display */
+  min-width: 50px; /* Smaller minimum width, closer to track */
+  font-size: 0.9rem;
+  color: var(--md-primary, #6750A4);
+  font-weight: 500;
+  text-align: right;
+  flex-shrink: 0; /* Don't allow shrinking */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+/* Reset icon button inside value display */
+.slider-with-value .slider-value-display {
+  position: relative; /* Anchor for the reset button */
+}
+
+.slider-with-value .slider-value-display .slider-reset-btn {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--md-surface-container-highest, #EBE1F4);
+  color: var(--md-on-surface, #1C1B1F);
+  border: none;
+  border-radius: 12px;
+  padding: 2px 6px;
+  font-size: 12px;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  /* Keep pointer events enabled so moving from the value into the button doesn't lose hover */
+  pointer-events: auto;
+  transition: opacity 0.15s ease;
+  z-index: 30;
+  cursor: pointer;
+}
+
+.slider-with-value .slider-value-display:hover .slider-reset-btn,
+.slider-with-value .slider-value-display .slider-reset-btn:hover,
+.slider-with-value .slider-value-display .slider-reset-btn:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slider-with-value .slider-value-display:hover {
+  cursor: pointer; /* Show pointer when hovering value */
+}
+
+.slider-with-value .slider-value-display .slider-reset-btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ... (all existing styles up to .standard-slider-handle) ... */
+
+/* Handle - Material 3 slider handle (tall thin pill) */
+.standard-slider-handle {
+  position: relative;
+  width: 4px; /* Thin pill width */
+  height: 36px; /* Tall pill height (canonical) */
+  background-color: var(--md-secondary, #2979FF); /* Use your blue secondary color */
+  border-radius: 4px; /* Pill shape */
+  cursor: grab;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1); /* Material motion */
+  z-index: 10;
+  flex-shrink: 0; /* Don't shrink */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/* --- NEW: Range Slider Specific Styles --- */
+
+/* Ensure handles in range sliders don't get squeezed */
+.range-slider .standard-slider-handle {
+  margin: 0 1px; /* Add small margin to prevent visual overlap with tracks */
+  height: 36px;
+}
+
+/* Make sure the active thumb is visually on top */
+.range-slider .standard-slider-handle.handle-start { z-index: 11; }
+.range-slider .standard-slider-handle.handle-end { z-index: 12; }
+.range-slider.dragging .standard-slider-handle.handle-start { z-index: 12; } /* Bring dragging handle to front */
+.range-slider.dragging .standard-slider-handle.handle-end { z-index: 11; }
+.range-slider.dragging .standard-slider-handle.active-thumb { z-index: 15; } /* Ensure active thumb is always on top */
+
+/* Active track for range slider needs rounded corners on both ends */
+.range-slider .standard-slider-active-track .track.range {
+  border-radius: 2px;
+}
+
+/* Inactive track start for range slider */
+.range-slider .standard-slider-inactive-track .track.start {
+  border-radius: 16px 2px 2px 16px;
+}
+
+/* Inactive track end for range slider */
+.range-slider .standard-slider-inactive-track .track.end {
+  border-radius: 2px 16px 16px 2px;
+}
+
+
+/* --- End Range Slider Styles --- */
+
+
+/* Pressed/dragged state - horizontal (duplicate scoped fix) */
+.standard-slider-container.orientation-horizontal.dragging .standard-slider-handle,
+.standard-slider-container.orientation-Horizontal.dragging .standard-slider-handle {
+  width: 2px; /* Thinner when dragging (horizontal) */
+  height: 36px; /* Same height */
+  border-radius: 1px; /* Adjust border radius for thinner width */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Add this to your existing CSS file */
+
+/* Start stop - dot at the beginning of the inactive track (for range sliders) */
+.standard-slider-start-stop {
+  position: absolute;
+  left: 6px; /* 6px from the start of the track */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: var(--md-outline, #79747E);
+  border-radius: 50%;
+  z-index: 5;
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Hide start stop when handle is near the start (<15% value) */
+.standard-slider-start-stop.hidden {
+  opacity: 0;
+}
+
+/* Video volume slider overrides */
+.video-volume-slider.standard-slider-container {
+  /* Softer, consistent shadow similar to other controls */
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
+}
+
+.video-volume-slider .standard-slider-active-track .track {
+  background-color: #FFFFFF !important;
+}
+
+.video-volume-slider .standard-slider-handle {
+  background-color: #FFFFFF !important;
+  /* Softer shadow */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.15) !important;
+}
+
+/* Keep vertical hover/drag behavior to adjust height only */
+.video-volume-slider.orientation-vertical .standard-slider-handle:hover,
+.video-volume-slider.orientation-Vertical .standard-slider-handle:hover {
+  height: 6px;
+}
+.video-volume-slider.orientation-vertical.dragging .standard-slider-handle,
+.video-volume-slider.orientation-Vertical.dragging .standard-slider-handle {
+  height: 2px;
+}

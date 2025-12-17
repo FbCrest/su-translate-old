@@ -1,0 +1,535 @@
+/* unified-url.css - Styles for the unified URL input component */
+
+.unified-url-input {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.unified-url-input .url-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+.unified-url-input .url-icon {
+  position: absolute;
+  left: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+  z-index: 1;
+}
+
+.unified-url-input .url-field {
+  width: 100%;
+  padding: 0.75rem 80px 0.75rem 60px;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  font-size: 1rem;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: all 0.2s ease, background-color var(--transition-speed), color var(--transition-speed);
+  box-shadow: 0 2px 5px var(--shadow-color);
+  font-family: inherit;
+}
+
+.unified-url-input .url-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+  border-radius: 30px;
+}
+
+.unified-url-input .url-field:focus ~ .url-icon {
+  color: var(--primary-color);
+}
+
+.unified-url-input .url-field::placeholder {
+  color: rgba(var(--text-tertiary-rgb, 128, 128, 128), 0.7);
+  transition: color var(--transition-speed);
+}
+
+.unified-url-input .history-button,
+.unified-url-input .clear-url-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  z-index: 2;
+}
+
+.unified-url-input .clear-url-btn {
+  right: calc(1.5rem + 15px);
+}
+
+.unified-url-input .history-button {
+  right: calc(1.5rem + 50px);
+}
+
+.unified-url-input .history-button:hover,
+.unified-url-input .clear-url-btn:hover {
+  color: var(--primary-color);
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.1);
+}
+
+.unified-url-input .url-examples {
+  margin-top: 1.5rem;
+}
+
+.unified-url-input .site-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.unified-url-input .site-chip {
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color);
+  cursor: default;
+}
+
+.unified-url-input .site-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.unified-url-input .more-sites-chip {
+  background-color: var(--primary-color-light, rgba(0, 123, 255, 0.1));
+  color: var(--primary-color, #0078d7);
+  border-color: var(--primary-color-light, rgba(0, 123, 255, 0.2));
+  font-weight: 500;
+  font-style: italic;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+.unified-url-input .more-sites-chip:hover {
+  background-color: var(--primary-color-light, rgba(0, 123, 255, 0.15));
+  color: var(--primary-color, #0078d7);
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+}
+
+.dark-theme .unified-url-input .site-chip {
+  background-color: var(--background-tertiary-dark, #2a2a2a);
+  border-color: var(--border-color-dark, #444);
+}
+
+.dark-theme .unified-url-input .more-sites-chip {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.15);
+  color: var(--primary-color, #0078d7);
+  border-color: rgba(var(--primary-rgb, 0, 123, 255), 0.3);
+}
+
+/* Selected video preview */
+.unified-url-input .selected-video-preview {
+  display: flex;
+  background-color: var(--background-tertiary);
+  border-radius: 24px;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color var(--transition-speed);
+}
+
+.unified-url-input .selected-video-preview .thumbnail {
+  width: 120px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.unified-url-input .selected-video-preview .video-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Video title styling */
+.unified-url-input .selected-video-preview .video-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--md-on-surface);
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Video ID/URL styling */
+.unified-url-input .selected-video-preview .video-id,
+.unified-url-input .selected-video-preview .video-url {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--md-on-surface-variant);
+  line-height: 1.3;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.unified-url-input .selected-video-preview .video-id-value,
+.unified-url-input .selected-video-preview .video-url-value {
+  color: var(--md-primary);
+  font-weight: 500;
+}
+
+.unified-url-input .selected-video-preview .video-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+  word-break: break-word;
+}
+
+.unified-url-input .selected-video-preview .video-id,
+.unified-url-input .selected-video-preview .video-url {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-speed);
+}
+
+.unified-url-input .selected-video-preview .video-id-value,
+.unified-url-input .selected-video-preview .video-url-value {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+  word-break: break-all;
+}
+
+/* Download Only Button - styled like translation buttons */
+.unified-url-input .selected-video-preview .download-only-btn {
+  padding: 0 1rem;
+  height: 42px;
+  border-radius: 21px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--md-duration-medium2) var(--md-easing-standard);
+  white-space: nowrap;
+  box-shadow: var(--md-elevation-level1);
+  border: none;
+  background-color: rgba(var(--md-primary-rgb), 0.1);
+  color: var(--md-primary);
+  flex-shrink: 0;
+}
+
+.unified-url-input .selected-video-preview .download-only-btn:hover {
+  background-color: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  transform: translateY(-2px);
+  box-shadow: var(--md-elevation-level2);
+}
+
+.unified-url-input .selected-video-preview .download-only-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--md-elevation-level1);
+}
+
+.unified-url-input .selected-video-preview .download-only-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* History dropdown */
+.unified-url-input .history-dropdown-container {
+  position: relative;
+  width: 100%;
+  z-index: 1000; /* Higher z-index to ensure it appears above other elements */
+}
+
+.unified-url-input .history-dropdown {
+  position: absolute;
+  top: -35px; /* Position relative to the input field */
+  left: 1.5rem;
+  width: calc(100% - 3rem);
+  background-color: var(--background-primary);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  z-index: 1001; /* Higher than container */
+  overflow: visible; /* Allow content to be visible outside */
+  max-height: 200px; /* Slightly reduced max height */
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed), opacity 0.2s ease-out;
+  border: 1px solid var(--primary-color);
+  border-top: none;
+}
+
+
+
+.unified-url-input .history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-speed);
+  background-color: var(--background-primary);
+}
+
+.unified-url-input .history-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+  letter-spacing: 0.01em;
+}
+
+.unified-url-input .history-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns grid layout */
+  max-height: 160px; /* Reduced height to fit better */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) var(--background-secondary);
+  position: relative; /* Ensure proper stacking context */
+}
+
+/* Custom scrollbar for Webkit browsers */
+.unified-url-input .history-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.unified-url-input .history-list::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+  border-radius: 4px;
+}
+
+.unified-url-input .history-list::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 4px;
+  border: 2px solid var(--background-secondary);
+}
+
+.unified-url-input .history-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-secondary);
+}
+
+/* Dark theme scrollbar */
+.dark-theme .unified-url-input .history-list {
+  scrollbar-color: var(--border-color-dark, #555) var(--background-secondary-dark, #2a2a2a);
+}
+
+.dark-theme .unified-url-input .history-list::-webkit-scrollbar-track {
+  background: var(--background-secondary-dark, #2a2a2a);
+}
+
+.dark-theme .unified-url-input .history-list::-webkit-scrollbar-thumb {
+  background-color: var(--border-color-dark, #555);
+  border: 2px solid var(--background-secondary-dark, #2a2a2a);
+}
+
+.unified-url-input .history-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  /* Add border-right for grid layout */
+  border-right: 1px solid var(--border-color);
+}
+
+.unified-url-input .history-item:nth-child(2n) {
+  border-right: none; /* Remove right border for items in the second column */
+}
+
+.unified-url-input .history-item:last-child,
+.unified-url-input .history-item:nth-last-child(2):nth-child(odd) {
+  border-bottom: none; /* Remove bottom border for last row items */
+}
+
+.unified-url-input .history-item:hover {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.04);
+}
+
+.unified-url-input .history-item:active {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.08);
+}
+
+.unified-url-input .history-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0; /* Ensure text truncation works in grid layout */
+}
+
+.unified-url-input .history-thumbnail {
+  width: 72px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: transform 0.2s ease;
+}
+
+.unified-url-input .history-item:hover .history-thumbnail {
+  transform: scale(1.03);
+}
+
+.unified-url-input .history-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.unified-url-input .history-item-title {
+  margin: 0 0 0.125rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--transition-speed);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.unified-url-input .history-item-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  transition: color var(--transition-speed);
+  align-items: center;
+}
+
+.unified-url-input .history-item-source {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.08);
+  color: var(--primary-color);
+  padding: 0.1rem 0.4rem;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Dark mode adjustments */
+.dark-theme .unified-url-input .url-field {
+  background-color: var(--background-primary-dark, #1e1e1e);
+  border-color: var(--border-color-dark, #444);
+  color: #ffffff;
+}
+
+.dark-theme .unified-url-input .url-field:focus {
+  border-color: var(--primary-color, #0078d7);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb, 0, 123, 255), 0.3);
+}
+
+.dark-theme .unified-url-input .url-field::placeholder {
+  color: rgba(var(--text-tertiary-dark-rgb, 170, 170, 170), 0.8);
+}
+
+.dark-theme .unified-url-input .history-dropdown {
+  background-color: var(--background-primary-dark, #1e1e1e);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary-color);
+}
+
+.dark-theme .unified-url-input .history-header {
+  background-color: var(--background-primary-dark, #1e1e1e);
+  border-color: var(--border-color-dark, #444);
+}
+
+.dark-theme .unified-url-input .history-item {
+  border-color: var(--border-color-dark, #444);
+}
+
+.dark-theme .unified-url-input .history-item:hover {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.08);
+}
+
+.dark-theme .unified-url-input .history-item:active {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.12);
+}
+
+.dark-theme .unified-url-input .history-item-source {
+  background-color: rgba(var(--primary-rgb, 0, 123, 255), 0.15);
+}
+
+.dark-theme .unified-url-input .selected-video-preview {
+  background-color: var(--background-tertiary-dark);
+}
+
+@media (max-width: 768px) {
+  .unified-url-input .site-chips {
+    gap: 0.4rem;
+  }
+
+  .unified-url-input .site-chip {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .unified-url-input .more-sites-chip {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .unified-url-input .history-dropdown {
+    width: calc(100% - 2rem);
+    left: 1rem;
+    top: -35px;
+    max-height: 280px;
+  }
+
+  .unified-url-input .url-field {
+    padding-right: 90px;
+    font-size: 0.95rem;
+  }
+
+  /* Keep the 2-column grid on mobile but adjust spacing */
+  .unified-url-input .history-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .unified-url-input .history-item {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .unified-url-input .history-item-title {
+    font-size: 0.8rem;
+  }
+
+  .unified-url-input .history-item-meta {
+    font-size: 0.7rem;
+  }
+}
