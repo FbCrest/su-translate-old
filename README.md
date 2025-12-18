@@ -1,428 +1,520 @@
-# One-Click Subtitles Generator
+# test
 
-Xem bản tiếng Việt [tại đây](README.vi.md).
+## Hướng dẫn sửa lỗi
 
-## Screenshots
+### Lỗi: Prompt dịch trực tiếp vẫn trả về tiếng Trung
 
-<details>
-<summary>Click to view screenshots</summary>
+Nếu bạn gặp lỗi khi sử dụng prompt "Dịch trực tiếp" nhưng kết quả vẫn là tiếng Trung thay vì tiếng Việt, hãy làm theo các bước sau:
 
-Here are some screenshots showcasing the application's current features:
+1. **Mở Settings** (⚙️) trong ứng dụng
+2. **Chọn tab "Prompts"**
+3. **Nhấn nút "🔄 Refresh Prompt"** để force refresh prompt với target language hiện tại
+4. **Hoặc nhấn nút "🗑️ Clear Cache"** để xóa cache và refresh prompt
+5. **Kiểm tra bằng nút "🐛 Debug"** để xem prompt hiện tại có đúng không
 
-<div align="center">
-  <table>
-    <tr>
-      <td><img src="readme_assets/0.png" width="100%"></td>
-      <td><img src="readme_assets/1.png" width="100%"></td>
-      <td><img src="readme_assets/2.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/3.png" width="100%"></td>
-      <td><img src="readme_assets/4.png" width="100%"></td>
-      <td><img src="readme_assets/5.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/6.png" width="100%"></td>
-      <td><img src="readme_assets/7.png" width="100%"></td>
-      <td><img src="readme_assets/8.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/9.png" width="100%"></td>
-      <td><img src="readme_assets/10.png" width="100%"></td>
-      <td><img src="readme_assets/11.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/12.png" width="100%"></td>
-      <td><img src="readme_assets/13.png" width="100%"></td>
-      <td><img src="readme_assets/14.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/15.png" width="100%"></td>
-      <td><img src="readme_assets/16.png" width="100%"></td>
-      <td><img src="readme_assets/17.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/18.png" width="100%"></td>
-      <td><img src="readme_assets/19.png" width="100%"></td>
-      <td><img src="readme_assets/20.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/21.png" width="100%"></td>
-      <td><img src="readme_assets/23.png" width="100%"></td>
-      <td><img src="readme_assets/24.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/25.png" width="100%"></td>
-      <td><img src="readme_assets/26.png" width="100%"></td>
-      <td><img src="readme_assets/27.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/28.png" width="100%"></td>
-      <td><img src="readme_assets/29.png" width="100%"></td>
-      <td><img src="readme_assets/30.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/31.png" width="100%"></td>
-      <td><img src="readme_assets/32.png" width="100%"></td>
-      <td><img src="readme_assets/33.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/34.png" width="100%"></td>
-      <td><img src="readme_assets/35.png" width="100%"></td>
-      <td><img src="readme_assets/36.png" width="100%"></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-    </tr>
-    <tr>
-      <td><img src="readme_assets/37.png" width="100%"></td>
-      <td><img src="readme_assets/38.png" width="100%"></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td align="center"><strong>Caption later</strong></td>
-      <td align="center"><strong>Caption later</strong></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
+Nếu vẫn không được, hãy:
+1. **Chọn lại preset "Dịch trực tiếp"** trong tab Prompts
+2. **Nhập "Tiếng Việt"** vào ô target language
+3. **Nhấn "Use"** để áp dụng
 
-</details>
+### Lỗi khác
 
-A comprehensive web application for auto-subtitling videos and audio, translating SRT files, generating AI narration with voice cloning, creating background images and music, and rendering professional subtitled videos. Designed for content creators, educators, and general users who need high-quality subtitle generation and video production capabilities.
+Nếu gặp lỗi khác, vui lòng:
+- Kiểm tra console (F12) để xem thông báo lỗi
+- Thử refresh trang
+- Xóa cache browser nếu cần thiết
 
-## Installation Options Comparison
+---
 
-Choose the right version for your needs:
+## Hướng dẫn thay đổi ID model và tên model Gemini cho toàn bộ project
 
-| Feature | OSG Lite | OSG Full | OSG Vercel |
-|---------|----------|------------|------------|
-| **AI Subtitle Generation** | ✅ Gemini AI transcription | ✅ Gemini + Parakeet AI transcription | ✅ Gemini AI transcription |
-| **Video Sources** | ✅ YouTube, Douyin/TikTok, 1000+ platforms + Upload | ✅ YouTube, Douyin/TikTok, 1000+ platforms + Upload | Upload only |
-| **Subtitle Editor** | ✅ Visual timeline, waveform, real-time preview | ✅ Visual timeline, waveform, real-time preview | ✅ Visual timeline, waveform, real-time preview |
-| **Translation** | ✅ Multi-language with context awareness | ✅ Multi-language with context awareness | ✅ Multi-language with context awareness |
-| **Video Rendering** | ✅ GPU-accelerated with Remotion | ✅ GPU-accelerated with Remotion | ❌ Not available |
-| **Background Music Generation** | ✅ AI music with Lyria | ✅ AI music with Lyria | ✅ AI music with Lyria |
-| **Basic TTS** | ✅ Gemini Live API, Edge TTS, Google TTS | ✅ Gemini Live API, Edge TTS, Google TTS | ❌ Not available |
-| **Voice Cloning** | ❌ Not included | ✅ F5-TTS, Chatterbox | ❌ Not available |
-| **Project Folder Size** | ~2-3 GB | ~8-12 GB | N/A (hosted) |
-| **GPU Requirements** | Any GPU for video rendering | GPU accelerated voice cloning (CPU fallback available) | None (no rendering) |
+Nếu bạn muốn thay đổi **id** hoặc **tên hiển thị** của một model Gemini (ví dụ: từ `gemini-2.5-pro` sang `gemini-2.5-pro-v2`), hãy làm theo các bước sau:
 
-### 💡 **Recommendation:**
-- **Choose OSG Lite** if you need fast subtitle generation and video rendering without voice cloning
-- **Choose OSG (Full)** if you need advanced voice cloning and narration capabilities
+### 1. Các file cần sửa và ví dụ dòng code
 
-## Quick Installation Guide
+- **src/components/ModelDropdown.js**
+  - Tìm trong mảng modelOptions các dòng như:
+    ```js
+    { id: 'gemini-2.5-pro', name: t('models.gemini25Pro', 'Gemini 2.5 Pro'), ... }
+    ```
+    => Thay id hoặc tên trong dòng này.
+- **src/components/ModelRetryMenu.js**
+  - Tìm trong mảng modelOptions các dòng như:
+    ```js
+    { id: 'gemini-2.5-pro', name: t('models.gemini25Pro', 'Gemini 2.5 Pro'), ... }
+    ```
+    => Thay id hoặc tên trong dòng này.
+- **src/components/ParallelProcessingStatus.js**
+  - Tìm các hàm hoặc nút gọi model, ví dụ:
+    ```js
+    onRetryWithModel(index, 'gemini-2.5-pro');
+    ```
+    => Thay id trong tham số hàm.
+- **src/components/SettingsModal.js**
+  - Tìm trong dropdown:
+    ```js
+    <option value="gemini-2.5-pro">Gemini 2.5 Pro (Best accuracy, ...)</option>
+    ```
+    => Thay value hoặc tên hiển thị.
+- **src/components/OnboardingModal.js**
+  - Tìm trong mảng models:
+    ```js
+    { id: 'gemini-2.5-pro', name: t('models.gemini25Pro', 'Gemini 2.5 Pro'), ... }
+    ```
+    => Thay id hoặc tên trong dòng này.
+- **(Nếu có):** Các file lưu hoặc đọc model từ localStorage, API, hoặc truyền model vào backend, ví dụ:
+    ```js
+    localStorage.setItem('gemini_model', 'gemini-2.5-pro');
+    ```
+    hoặc
+    ```js
+    const MODEL = localStorage.getItem('gemini_model') || 'gemini-2.5-pro';
+    ```
 
-### Installation on Windows
+### 2. Cách thay đổi
 
-- Go to [Releases](https://github.com/nganlinh4/oneclick-subtitles-generator/releases) and download the latest OSG_installer_Windows.bat.
+- **Chỉ thay id:**
+  - Thay tất cả các chuỗi `id: 'id-model-cũ'` thành `id: 'id-model-mới'`.
+  - Thay tất cả các value, hàm, hoặc logic sử dụng id cũ thành id mới.
+- **Thay tên hiển thị:**
+  - Thay trường `name: t('models.xxx', 'Tên mới')` hoặc trực tiếp chuỗi tên trong các mảng model.
+  - Nếu dùng i18n, cập nhật cả file `src/i18n/locales/en.json` và `src/i18n/locales/vi.json` phần `models`.
 
-- Open the downloaded .bat file and follow the instructions (app size will be large if installing with voice cloning feature)
+### 3. Lưu ý
+- Sau khi thay đổi, nên xóa cache trình duyệt hoặc chọn lại model trong phần cài đặt để cập nhật id mới.
+- Nếu project có backend sử dụng id model, hãy đồng bộ cả backend nếu cần.
 
+**Ví dụ thay id model:**
+- Từ: `id: 'gemini-2.5-pro-exp-03-25'`
+- Thành: `id: 'gemini-2.5-pro'`
 
-### Installation on macOS and Ubuntu
+**Ví dụ thay tên hiển thị:**
+- Từ: `name: t('models.gemini25Pro', 'Gemini 2.5 Pro')`
+- Thành: `name: t('models.gemini25Pro', 'Gemini 2.5 Pro V2')`
 
-- Clone this repo and run the OSG_installer.sh file:
-  ```bash
-  git clone https://github.com/nganlinh4/oneclick-subtitles-generator.git
-  cd oneclick-subtitles-generator
-  chmod +x OSG_installer.sh
-  ./OSG_installer.sh
+### 4. Cách bật/tắt badge "Đang bảo trì" cho từng model
+
+- Trong file **src/components/OnboardingModal.js** và **src/components/SettingsModal.js**, có object cấu hình:
+  ```js
+  const maintenanceStatus = {
+    'gemini-2.5-pro': false, // Đổi thành true để bật badge Đang bảo trì
+    'gemini-2.5-flash-preview-05-20': false,
+    'gemini-2.0-flash': false,
+    'gemini-2.0-flash-lite': false
+  };
+  ```
+- Để **bật badge Đang bảo trì** cho model nào, chỉ cần đổi giá trị thành `true`.
+- Badge này sẽ hiển thị cùng badge cố định (Ưu tiên cao nhất, Khuyên dùng, Dùng ổn định, Dùng trải nghiệm).
+- Có thể bật nhiều model cùng lúc nếu muốn.
+- Badge bảo trì sẽ tự động đồng bộ UI ở cả OnboardingModal và SettingsModal.
+
+**Ví dụ:**
+```js
+const maintenanceStatus = {
+  'gemini-2.5-pro': true, // Hiện badge Đang bảo trì cho Pro
+  'gemini-2.5-flash-preview-05-20': false,
+  'gemini-2.0-flash': false,
+  'gemini-2.0-flash-lite': true // Hiện badge Đang bảo trì cho Flash Lite
+};
+```
+
+**Lưu ý:**
+- Không cần sửa nhiều chỗ, chỉ đổi giá trị trong object này là đủ.
+- Badge bảo trì sẽ luôn hiển thị cạnh badge cố định của model.
+
+### 5. Cách thay badge và icon cho từng model trong bảng Setting (SettingsModal)
+
+- Trong file **src/components/SettingsModal.js**, dropdown chọn model Gemini đã dùng custom component `ModelDropdown` với prop `renderBadge`.
+- Để thay badge hoặc icon cho từng model, sửa hàm `renderBadge` như sau:
+  ```js
+  <ModelDropdown
+    ...
+    renderBadge={(modelId) => {
+      if (modelId === 'gemini-2.5-pro') {
+        return <span className="model-badge-premium"><FiAward style={{marginRight:4}}/> Ưu tiên nhất</span>;
+      }
+      if (modelId === 'gemini-2.5-flash-preview-05-20') {
+        return <span className="model-badge-recommend"><FiStar style={{marginRight:4}}/> Khuyên dùng</span>;
+      }
+      if (modelId === 'gemini-2.0-flash' || modelId === 'gemini-2.0-flash-lite') {
+        return <span className="model-badge-maintenance"><FiCpu style={{marginRight:4}}/> Đang bảo trì</span>;
+      }
+      return null;
+    }}
+  />
+  ```
+- Bạn có thể thay đổi điều kiện, nội dung badge, hoặc icon theo ý muốn. Ví dụ:
+  ```js
+  if (modelId === 'gemini-2.5-pro') {
+    return <span className="model-badge-premium"><FiAward/> Best Premium</span>;
+  }
+  ```
+- Badge sẽ tự động hiển thị cạnh tên model trong dropdown.
+
+### 6. Cách thay icon cho từng loại badge trong Setting Modal
+
+- Trong hàm `renderBadge` của `ModelDropdown` ở **src/components/SettingsModal.js**, mỗi loại badge có thể gắn icon khác nhau, ví dụ:
+  ```js
+  if (/* điều kiện badge 'Ưu tiên nhất' */) {
+    return <span className="model-badge-premium"><FiAward/> Ưu tiên nhất</span>;
+  }
+  if (/* điều kiện badge 'Khuyên dùng' */) {
+    return <span className="model-badge-recommend"><FiStar/> Khuyên dùng</span>;
+  }
+  if (/* điều kiện badge 'Đang bảo trì' */) {
+    return <span className="model-badge-maintenance"><FiCpu/> Đang bảo trì</span>;
+  }
+  ```
+- **Muốn đổi icon cho badge nào, chỉ cần thay component icon trong JSX badge đó.**
+- Ví dụ đổi icon cho badge "Khuyên dùng":
+  ```js
+  <span className="model-badge-recommend"><FiThumbsUp/> Khuyên dùng</span>
+  ```
+- Badge sẽ tự động hiển thị đúng icon cạnh tên model trong dropdown.
+
+**Lưu ý:**
+- Icon của các badge ("Ưu tiên nhất", "Khuyên dùng", "Đang bảo trì") trong Onboarding Modal đã được đồng bộ với Setting Modal:
+  - Ưu tiên nhất: <FiAward />
+  - Khuyên dùng: <FiStar />
+  - Đang bảo trì: <FiCpu />
+- Nếu muốn đổi icon cho badge nào, hãy sửa JSX ở cả hai file:
+  - `src/components/SettingsModal.js` (hàm renderBadge)
+  - `src/components/OnboardingModal.js` (phần hiển thị badge cho từng model)
+
+### 7. Badge động cho tất cả các model Gemini (Onboarding & Settings Modal)
+
+- **Badge động**: Badge sẽ tự động đổi theo trạng thái model (mặc định hoặc lấy từ backend/API).
+- **Các trạng thái và badge mẫu:**
+  - `premium`: <FiAward/> Ưu tiên nhất (tím gradient)
+  - `recommended`: <FiStar/> Khuyên dùng (xanh gradient)
+  - `maintenance`: <FiCpu/> Đang bảo trì (vàng gradient)
+  - `stable`: <FiCheckCircle/> Ổn định (xanh lá gradient)
+  - `experimental`: <FiFlask/> Chỉ thử nghiệm (cam/hồng gradient)
+- **Cách thêm trạng thái mới:**
+  1. Thêm trạng thái vào object `modelStatus` trong cả `SettingsModal.js` và `OnboardingModal.js`.
+  2. Thêm điều kiện render badge mới trong prop `renderBadge` (SettingsModal) và trong JSX (OnboardingModal).
+  3. Thêm CSS cho class badge mới vào `src/styles/ModelDropdown.css`.
+- **Ví dụ code badge động:**
+  ```js
+  // Trạng thái mặc định hoặc lấy từ API
+  const modelStatus = {
+    'gemini-2.5-pro': 'premium',
+    'gemini-2.5-flash-preview-05-20': 'recommended',
+    'gemini-2.0-flash': 'stable',
+    'gemini-2.0-flash-lite': 'experimental'
+  };
+  // Render badge
+  if (status === 'premium') {
+    return <span className="model-badge-premium"><FiAward/> Ưu tiên nhất</span>;
+  }
+  if (status === 'recommended') {
+    return <span className="model-badge-recommend"><FiStar/> Khuyên dùng</span>;
+  }
+  if (status === 'maintenance') {
+    return <span className="model-badge-maintenance"><FiCpu/> Đang bảo trì</span>;
+  }
+  if (status === 'stable') {
+    return <span className="model-badge-stable"><FiCheckCircle/> Ổn định</span>;
+  }
+  if (status === 'experimental') {
+    return <span className="model-badge-experimental"><FiFlask/> Chỉ thử nghiệm</span>;
+  }
+  ```
+- **CSS badge mới:**
+  - Thêm vào `src/styles/ModelDropdown.css` (xem ví dụ các class `.model-badge-premium`, `.model-badge-recommend`, `.model-badge-maintenance`, `.model-badge-stable`, `.model-badge-experimental`).
+- **Đồng bộ logic:**
+  - Luôn cập nhật logic trạng thái và render badge ở cả hai file: `SettingsModal.js` và `OnboardingModal.js` để giao diện đồng nhất.
+- **Thông báo khi chưa có API key:**
+  - Khi chưa nhập API key, badge sẽ hiển thị theo trạng thái mặc định và có thông báo nhỏ: "Trạng thái model hiện tại là mặc định. Hãy nhập API key để cập nhật trạng thái mới nhất."
+
+### 8. Cách đổi màu badge cho từng trạng thái
+
+- Mỗi badge có một class CSS riêng (ví dụ: `.model-badge-premium`, `.model-badge-recommend`, `.model-badge-maintenance`, `.model-badge-stable`, `.model-badge-experimental`).
+- Để đổi màu badge, chỉ cần sửa thuộc tính `background` (hoặc các thuộc tính màu khác) trong file `src/styles/ModelDropdown.css`.
+
+**Ví dụ đổi màu badge:**
+```css
+.model-badge-premium {
+  background: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%); /* tím gradient */
+  color: #fff;
+}
+.model-badge-recommend {
+  background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%); /* xanh gradient */
+  color: #fff;
+}
+.model-badge-maintenance {
+  background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%); /* vàng gradient */
+  color: #fff;
+}
+.model-badge-stable {
+  background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%); /* xanh lá gradient */
+  color: #fff;
+}
+.model-badge-experimental {
+  background: linear-gradient(90deg, #ffb347 0%, #ff416c 100%); /* cam/hồng gradient */
+  color: #fff;
+}
+```
+- **Muốn đổi màu:**
+  - Chỉ cần thay mã màu trong thuộc tính `background` của class badge tương ứng.
+  - Có thể dùng màu đơn (`background: #a259ff;`) hoặc gradient (`background: linear-gradient(...)`).
+
+**Ví dụ đổi badge "Khuyên dùng" sang màu tím:**
+```css
+.model-badge-recommend {
+  background: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%);
+  color: #fff;
+}
+```
+
+- Đổi màu ở đây sẽ tự động áp dụng cho cả Onboarding Modal và Setting Modal.
+
+---
+
+# Subtitles Generator – Hướng dẫn chỉnh sửa UI chọn model Gemini
+
+## 1. Đồng bộ UI chọn model Gemini (badge, hiệu ứng, màu sắc)
+
+### a. Vị trí cần đồng bộ
+- **Tab "Mô hình Gemini" trong SettingsModal** (`src/components/SettingsModal.js`)
+- **Chọn model trong OnboardingModal** (`src/components/OnboardingModal.js`)
+
+### b. Cách thêm/sửa badge, màu badge, icon, text badge
+- Badge được xác định bởi status: `premium`, `recommended`, `stable`, `experimental`, `maintenance`.
+- Mỗi badge có icon riêng (FaCrown, FaStar, FaCheckCircle, FaFlask, FaTools).
+- Text badge sửa trong i18n hoặc trực tiếp trong JSX (ví dụ: 'Dùng trải nghiệm').
+- Màu badge chỉnh trong CSS:
+  - `model-badge-premium`: tím
+  - `model-badge-recommend`: xanh lá
+  - `model-badge-stable`: xanh dương nhạt
+  - `model-badge-experimental`: cam nhạt
+  - Badge luôn dùng `color: #fff !important;` và gradient nền.
+
+### c. Cách đồng bộ hiệu ứng chọn (selected), layout, màu sắc
+- Khi chọn model, card có nền gradient, viền phát sáng, scale nhẹ, chữ và badge trắng.
+- CSS hiệu ứng nằm ở cả `src/styles/SettingsModal.css` và `src/styles/OnboardingModal.css`.
+- Đảm bảo class `.onboarding-model-card.selected` và badge `.model-badge-*` giống nhau ở cả hai file.
+
+### d. Cách chỉnh badge không bị xuống dòng, luôn căn giữa với tên model
+- Dùng flex cho container chứa h3 và badge:
+  ```css
+  .onboarding-model-card > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+  .onboarding-model-card h3 {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: none;
+  }
+  .model-badge-* {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    color: #fff !important;
+  }
+  ```
+- Badge không nên có height cố định, chỉ padding ngang.
+
+### e. Cách đổi màu badge theo cấp độ
+- Sửa trong CSS:
+  ```css
+  .model-badge-premium { background: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%) !important; }
+  .model-badge-recommend { background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%) !important; }
+  .model-badge-stable { background: linear-gradient(90deg, #42a5f5 0%, #478ed1 100%) !important; }
+  .model-badge-experimental { background: linear-gradient(90deg, #ffb347 0%, #ff7043 100%) !important; }
+  .model-badge-* { color: #fff !important; }
   ```
 
-- Follow the on-screen instructions (app size will be large if installing with voice cloning feature)
+### f. Cách sửa text badge
+- Sửa trực tiếp trong JSX hoặc file i18n:
+  - Ví dụ: `{t('onboarding.experimental', 'Dùng trải nghiệm')}`
 
-### Update or Run Application
+### g. Lưu ý về CSS
+- Luôn dùng `!important` cho `color` và `background` để tránh bị ghi đè.
+- Badge và icon luôn màu trắng (`color: #fff !important;`).
+- Không dùng height cố định cho badge.
 
-#### Windows
-- Open OSG_installer_Windows.bat and follow the instructions.
+### h. Cách kiểm tra và reload cache khi sửa CSS
+- Nhấn Ctrl+F5 để reload mạnh trình duyệt.
+- Nếu badge vẫn sai màu, kiểm tra DevTools (F12) > Elements > badge, xem rule nào đang áp dụng.
+- Nếu dùng build tool, xóa cache/build rồi build lại.
 
-#### macOS and Ubuntu
-- Open Terminal and run the OSG_installer.sh file again:
-  ```bash
-  ./OSG_installer.sh
+---
+
+## 2. Thay đổi logic/model mới
+- Khi thêm model mới, thêm vào mảng `geminiModels` ở cả SettingsModal và OnboardingModal.
+- Thêm status mới nếu cần, đồng bộ badge và màu sắc.
+
+---
+
+## 3. Liên hệ
+Nếu gặp lỗi UI badge, hiệu ứng, hoặc muốn tối ưu thêm, hãy liên hệ dev chính hoặc mở issue trên repo.
+
+---
+
+## HƯỚNG DẪN TUỲ BIẾN NỘI DUNG, MÀU CHỮ, ICON CHO MODEL/BADGE TRONG SETTINGS MODAL VÀ ONBOARDING MODAL
+
+### 1. Thay đổi nội dung (text) cho model hoặc badge
+- Vào file `src/components/SettingsModal.js` hoặc `src/components/OnboardingModal.js`.
+- Tìm mảng models hoặc nơi render badge, sửa trực tiếp text hoặc dùng i18n:
+  - Sửa trực tiếp: `name: 'Gemini 2.5 Pro V2'`
+  - Dùng i18n: `name: t('models.gemini25Pro', 'Gemini 2.5 Pro')`
+- Nếu dùng i18n, sửa file `src/i18n/locales/en.json` và `vi.json` để cập nhật text mới.
+- Để đổi text badge, sửa trong hàm render badge hoặc JSX badge:
+  ```js
+  <span className="model-badge-premium">Ưu tiên nhất</span>
   ```
 
-- Browser will automatically open at http://localhost:3030
+### 2. Thay đổi màu chữ, màu nền badge
+- Mỗi loại badge có class riêng trong file CSS, ví dụ: `src/styles/ModelDropdown.css`.
+- Để đổi **màu chữ**:
+  ```css
+  .model-badge-premium {
+    color: #fff; /* Đổi sang màu mong muốn */
+  }
+  ```
+- Để đổi **màu nền** (có thể dùng màu đơn hoặc gradient):
+  ```css
+  .model-badge-premium {
+    background: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%);
+  }
+  ```
+- Tương tự cho các class: `.model-badge-recommend`, `.model-badge-maintenance`, `.model-badge-stable`, `.model-badge-experimental`...
 
-## Features
+### 3. Thêm hoặc đổi icon cho badge/model
+- Icon thường dùng thư viện React Icons (ví dụ: `FiAward`, `FiStar`, `FiCpu`, ...).
+- Để đổi icon, sửa trong hàm render badge hoặc JSX badge:
+  ```js
+  import { FiAward, FiStar, FiCpu, FiFlask } from 'react-icons/fi';
+  // ...
+  <span className="model-badge-premium"><FiAward style={{marginRight:4}}/> Ưu tiên nhất</span>
+  <span className="model-badge-recommend"><FiStar style={{marginRight:4}}/> Khuyên dùng</span>
+  <span className="model-badge-maintenance"><FiCpu style={{marginRight:4}}/> Đang bảo trì</span>
+  <span className="model-badge-experimental"><FiFlask style={{marginRight:4}}/> Dùng trải nghiệm</span>
+  ```
+- Muốn đổi icon, chỉ cần thay component icon (ví dụ: đổi `FiStar` thành `FiThumbsUp`).
+- Có thể thêm nhiều icon, đổi vị trí icon, hoặc thêm hiệu ứng CSS cho icon nếu muốn.
 
-### 🎬 Video & Audio Processing
-- **Multi-source support**: Upload video/audio files, YouTube URLs, Douyin/TikTok links, or search YouTube by title
-- **Format compatibility**: Supports MP4, AVI, MOV, WebM, WMV, MP3, WAV, AAC, FLAC, and more
-- **Quality scanning**: Intelligent video quality detection with cookie-based authentication for premium content
-- **Video compatibility checking**: Automatic format conversion for Remotion compatibility
+### 4. Đảm bảo đồng bộ giữa SettingsModal và OnboardingModal
+- Khi thay đổi nội dung, màu, icon cho badge/model, nên sửa ở cả hai file để giao diện nhất quán.
+- Có thể tách logic render badge ra component riêng để tái sử dụng.
 
-### 🤖 AI-Powered Subtitle Generation
-- **Google Gemini AI**: Uses latest Gemini 2.5 models (Flash, Pro) for accurate transcription
-- **NVIDIA Parakeet (local, optional)**: On-device ASR for fast, private transcription when running OSG Full. Choose the "NVIDIA Parakeet" method in the subtitle generation dialog. Unified with the same lifecycle, retries, and progress UI as Gemini.
-- **Multi-language support**: Generate subtitles in multiple languages with high accuracy
-- **Parallel processing**: Handles long videos (15+ minutes) with intelligent segmentation
-- **Custom prompts**: Configurable transcription prompts for specialized content
-- **Retry mechanisms**: Smart retry with different models for failed segments
+### 5. Xem lại kết quả
+- Sau khi sửa, reload lại trang để xem thay đổi.
+- Nếu không thấy thay đổi, kiểm tra lại cache trình duyệt hoặc build lại project.
 
-### ✏️ Advanced Subtitle Editing
-- **Visual timeline editor**: Drag-and-drop timing adjustments with waveform visualization
-- **Real-time preview**: Live subtitle synchronization with video playback
-- **Sticky timing**: Batch adjust multiple subtitles simultaneously
-- **Text editing**: Direct text modification with undo/redo functionality
-- **Merge & split**: Combine adjacent subtitles or split long ones
-- **Format support**: Export to SRT, JSON, or custom formats
+---
 
-### 🗣️ AI Voice Narration
-- **F5-TTS integration**: State-of-the-art voice cloning technology
-- **Chatterbox TTS**: High-quality text-to-speech with voice conversion
-- **Edge TTS & Google TTS**: Multiple TTS engine options
-- **Reference audio**: Upload, record, or extract voice samples from videos
-- **Multi-audio tracks**: Combine original audio with AI-generated narration
-- **Volume controls**: Independent audio level management
+# Công dụng các file JS trong thư mục src/components
 
-### 🌍 Translation & Localization
-- **Multi-language translation**: Translate subtitles to any language while preserving timing
-- **Custom formatting**: Configurable output formats with brackets, delimiters, and chains
-- **Batch processing**: Translate multiple subtitle sets simultaneously
-- **Context awareness**: AI-powered translation with video context understanding
+Dưới đây là mô tả ngắn gọn công dụng của từng file JS trong src/components và các thư mục con:
 
-<!-- ### 🎨 Background Image Generation
-- **AI-powered creation**: Generate custom backgrounds using Gemini's image generation
-- **Album art integration**: Use existing artwork as reference for style consistency
-- **Batch generation**: Create multiple variations with unique prompts
-- **Smart prompting**: Automatic prompt generation based on lyrics and content
--->
+## src/components/
+- **DownloadOptionsModal.js**: Modal chọn tuỳ chọn tải video/phụ đề (chất lượng, định dạng, v.v.).
+- **GeminiHeaderAnimation.js**: Hiệu ứng động header Gemini (animation đẹp cho trang chính).
+- **Header.js**: Thanh header chính của ứng dụng (logo, menu, v.v.).
+- **InputMethods.js**: Chọn phương thức nhập (URL, upload file, tìm kiếm YouTube, v.v.).
+- **LanguageSelector.js**: Dropdown chọn ngôn ngữ dịch/phụ đề.
+- **LyricsDisplay.js**: Thành phần chính hiển thị và điều khiển timeline, lời, waveform, zoom, v.v.
+- **ModelDropdown.js**: Dropdown chọn model Gemini với badge trạng thái.
+- **ModelRetryMenu.js**: Menu chọn lại model Gemini khi dịch lỗi hoặc muốn thử lại.
+- **OAuth2Callback.js**: Xử lý callback OAuth2 khi đăng nhập Google API.
+- **OnboardingModal.js**: Modal onboarding hướng dẫn, chọn model Gemini lần đầu.
+- **OutputContainer.js**: Hiển thị kết quả dịch, phụ đề, video preview.
+- **ParallelProcessingStatus.js**: Hiển thị trạng thái xử lý song song nhiều tác vụ (dịch, tải, v.v.).
+- **PromptEditor.js**: Giao diện chỉnh sửa prompt dịch cho Gemini.
+- **SettingsModal.js**: Modal cài đặt chính (API key, model, giao diện, preset, v.v.).
+- **SrtUploadButton.js**: Nút upload file SRT phụ đề.
+- **SubtitleHideToggle.js**: Bật/tắt hiển thị phụ đề trên video.
+- **SubtitleLanguageToggle.js**: Chuyển đổi ngôn ngữ phụ đề (gốc/dịch).
+- **SubtitleSettings.js**: Cài đặt chi tiết cho phụ đề (font, màu, vị trí, v.v.).
+- **TranslationModal.js**: Modal dịch nhanh, nhập văn bản hoặc file để dịch.
+- **TranslationSection.js**: Khu vực hiển thị kết quả dịch (song ngữ, highlight, v.v.).
+- **TranslationWarningToast.js**: Toast cảnh báo khi dịch lỗi hoặc có vấn đề.
 
-### 🎹 Background Music Generation
-- AI-generated background music with prompt-based control
-- MIDI playback and control support (promptdj-midi)
-- Simple export for use in video rendering
+## src/components/inputs/
+- **CustomCheckbox.js**: Checkbox tuỳ biến giao diện.
+- **CustomRadio.js**: Radio button tuỳ biến giao diện.
+- **CustomSelect.js**: Dropdown select tuỳ biến giao diện.
+- **FileUploadInput.js**: Thành phần upload file (video, phụ đề, v.v.).
+- **QualitySelector.js**: Chọn chất lượng video tải về.
+- **YoutubeSearchInput.js**: Ô tìm kiếm video YouTube.
+- **YoutubeUrlInput.js**: Nhập URL video YouTube để tải/dịch.
 
+## src/components/lyrics/
+- **LyricItem.js**: Hiển thị một dòng lời (lyric) trên timeline hoặc danh sách.
+- **LyricsHeader.js**: Header timeline (ruler thời gian, drag-to-zoom, v.v.).
+- **TimelineVisualization.js**: Vẽ timeline, playhead, segment, click-to-seek, zoom, v.v.
+- **VolumeVisualizer.js**: Hiển thị waveform âm lượng dưới timeline.
 
-### 🎥 Professional Video Rendering
-- **Remotion integration**: GPU-accelerated video rendering with hardware optimization
-- **Multi-resolution support**: 360p to 8K output with automatic aspect ratio detection
-- **Subtitle customization**: Extensive styling options including fonts, colors, effects, and animations
-- **Multi-audio support**: Combine original video audio with AI narration tracks
-- **Background integration**: Use generated images or video backgrounds
-- **Render queue**: Batch processing with progress tracking
+### src/components/lyrics/utils/
+- **ColorUtils.js**: Hàm tiện ích xử lý màu cho timeline/lyric.
+- **TimelineCalculations.js**: Hàm tính toán vị trí, thời gian, zoom cho timeline.
+- **TimelineDrawing.js**: Hàm vẽ các thành phần timeline lên canvas.
+- **TimelineInteractions.js**: Xử lý tương tác timeline (kéo, click, zoom, v.v.).
 
+## src/components/previews/
+- **SubtitlesPreview.js**: Xem trước phụ đề dạng text.
+- **VideoPreview.js**: Xem trước video đã xử lý hoặc video có phụ đề.
 
+---
 
-## How to Use
+# Công dụng các file JS trong thư mục src/hooks
 
-### 1. **Select Your Content Source**
-   - **File Upload**: Drag & drop or browse for video/audio files
-   - **YouTube**: Paste URL or search by title with thumbnail preview
-   - **Douyin/TikTok**: Paste URL for automatic extraction
-   - **Other platforms**: Use any supported video URL
+- **useLyricsEditor.js**: Custom React hook quản lý logic chỉnh sửa lời (lyrics), undo/redo, đồng bộ với timeline.
+- **useSubtitles.js**: Custom React hook quản lý phụ đề (subtitles), đồng bộ hóa, phân đoạn, xử lý import/export.
 
-### 2. **Generate AI Subtitles**
-  - Choose your preferred engine:
-    - Gemini (cloud) for convenience and strong accuracy
-    - NVIDIA Parakeet (local) for on-device, privacy-friendly transcription (requires OSG Full)
-  - Pick your Gemini model (2.5 Flash/Pro recommended) or Parakeet strategy (sentence/word/char)
-   - Configure custom prompts for specialized content
-   - Click "Generate timed subtitles" and monitor progress
-   - Long videos are automatically processed in parallel segments
+# Công dụng các file JS trong thư mục src/services
 
-### 3. **Edit & Refine Subtitles**
-   - **Visual timeline**: Drag timing handles with waveform visualization
-   - **Real-time preview**: See changes instantly synchronized with video
-   - **Text editing**: Click to edit subtitle content directly
-   - **Batch operations**: Use sticky timing for multiple subtitle adjustments
-   - **Advanced tools**: Merge, split, insert, or delete subtitle segments
+- **geminiService.js**: Giao tiếp với API Gemini, gửi prompt, nhận kết quả dịch, quản lý trạng thái model.
+- **googleAuthService.js**: Xử lý xác thực OAuth2 với Google, lấy access token, refresh token.
+- **segmentProcessingService.js**: Xử lý phân đoạn video/audio, chia nhỏ để dịch hoặc xử lý song song.
+- **youtubeApiService.js**: Giao tiếp với YouTube API, tìm kiếm, lấy thông tin video, phụ đề.
+- **youtubeService.js**: Xử lý các thao tác tải, lấy thông tin video YouTube (không qua API chính thức).
 
-### 4. **Translate Content** (Optional)
-   - Select target languages for translation
-   - Configure output formatting (brackets, delimiters, chains)
-   - Use context-aware AI translation with video understanding
-   - Preserve original timing while adapting text
+# Công dụng các file JS trong thư mục src/utils
 
-### 5. **Generate AI Narration** (Optional)
-    - **Set up reference audio**: Upload, record, or extract from video
-    - **Choose TTS engine**: F5-TTS (voice cloning), Chatterbox, Edge TTS, or Google TTS
-    - **Configure voice settings**: Adjust speed, pitch, and style parameters
-    - **Generate narration**: Create AI voice for original or translated subtitles
+- **audioConverter.js**: Chuyển đổi định dạng audio, trích xuất audio từ video.
+- **cacheUtils.js**: Tiện ích quản lý cache (bộ nhớ tạm) cho dữ liệu dịch, phụ đề, v.v.
+- **colorfulSegmentsOptimizer.js**: Tối ưu hoá phân đoạn timeline với màu sắc nổi bật.
+- **durationUtils.js**: Hàm tiện ích xử lý thời lượng, chuyển đổi đơn vị thời gian.
+- **fileUtils.js**: Hàm tiện ích thao tác file (đọc, ghi, kiểm tra, v.v.).
+- **geminiButtonEffects.js**: Hiệu ứng động cho nút Gemini (animation, particle, v.v.).
+- **historyUtils.js**: Quản lý lịch sử dịch, undo/redo, lưu trạng thái.
+- **languageUtils.js**: Xử lý ngôn ngữ, mã ngôn ngữ, chuyển đổi tên ngôn ngữ.
+- **optimizedVideoStreaming.js**: Tối ưu phát video streaming (buffer, preload, v.v.).
+- **schemaUtils.js**: Xác thực, chuyển đổi schema dữ liệu (phụ đề, lyrics, v.v.).
+- **segmentManager.js**: Quản lý phân đoạn video/audio cho dịch và timeline.
+- **srtParser.js**: Phân tích, chuyển đổi file SRT (phụ đề).
+- **structuredJsonParser.js**: Phân tích, xác thực JSON có cấu trúc (cho prompt, phụ đề, v.v.).
+- **subtitleConverter.js**: Chuyển đổi giữa các định dạng phụ đề (SRT, VTT, JSON).
+- **subtitleParser.js**: Phân tích, chuyển đổi phụ đề nhiều định dạng (SRT, VTT, JSON).
+- **subtitleUtils.js**: Hàm tiện ích xử lý phụ đề (cắt, ghép, đồng bộ, v.v.).
+- **timeFormatter.js**: Định dạng thời gian (hh:mm:ss, ms, v.v.).
+- **timeUtils.js**: Hàm tiện ích thao tác thời gian (so sánh, cộng trừ, v.v.).
+- **transcriptionRulesStore.js**: Lưu trữ, quản lý rule chuyển đổi transcript/phụ đề.
+- **videoDownloader.js**: Tải video từ nhiều nguồn (YouTube, Douyin, v.v.).
+- **videoPreloader.js**: Tiện ích preload video để phát mượt hơn.
+- **videoProcessor.js**: Xử lý video (cắt, ghép, chuyển đổi, tối ưu, v.v.).
+- **videoSegmenter.js**: Chia nhỏ video thành các segment để xử lý song song.
+- **videoSplitter.js**: Cắt video thành nhiều phần nhỏ.
+- **videoUtils.js**: Hàm tiện ích thao tác video (lấy info, chuyển đổi, v.v.).
+- **vttUtils.js**: Xử lý phụ đề VTT (WebVTT).
 
-### 6. **Create Background Music** (Optional)
-   - Open the Background Music panel
-   - Enter a prompt or choose presets, then generate
-   - Preview and adjust via MIDI controls; export for rendering
+## src/utils/geminiEffects/
+- **buttonState.js**: Quản lý trạng thái hiệu ứng nút Gemini (hover, active, v.v.).
+- **constants.js**: Định nghĩa hằng số cho hiệu ứng Gemini (màu, tốc độ, v.v.).
+- **domUtils.js**: Tiện ích thao tác DOM cho hiệu ứng động Gemini.
+- **index.js**: Entry point, tổng hợp và export các hàm hiệu ứng Gemini.
+- **particleSystem.js**: Quản lý hệ thống particle (hạt động) cho animation Gemini.
+- **particleUtils.js**: Hàm tiện ích tạo, cập nhật, render particle cho hiệu ứng Gemini.
+- **physicsEngine.js**: Mô phỏng vật lý cho hiệu ứng động Gemini (lực, va chạm, v.v.).
+- **physicsUtils.js**: Hàm tiện ích vật lý cho particle/nút Gemini.
+- **renderUtils.js**: Hàm vẽ, render hiệu ứng động Gemini lên canvas/SVG.
+- **svgUtils.js**: Tiện ích thao tác SVG cho hiệu ứng Gemini.
 
-### 7. **Render Professional Videos**
-   - **Open video renderer**: Access the integrated Remotion-based renderer
-   - **Customize subtitles**: Extensive styling options (fonts, colors, effects, animations)
-   - **Configure audio**: Balance original video audio with AI narration
-   - **Set output quality**: Choose resolution from 360p to 8K
-   - **Render with GPU acceleration**: Hardware-optimized processing for fast output
-
-### 8. **Export & Download**
-   - **Subtitle files**: SRT, JSON, or custom formats
-   - **Audio files**: Generated narration in various formats
-   - **Rendered videos**: Professional subtitled videos with custom styling
-
-
-
-## Configuration
-
-Access settings via the gear icon in the top-right corner:
-- **API Keys**: Gemini (required), YouTube (optional for search)
-- **AI Models**: Choose between Gemini 2.5 Flash, Pro, or experimental models
-- **Processing Method**: Switch between Gemini (cloud) and NVIDIA Parakeet (local ASR, OSG Full)
-- **Languages**: English, Vietnamese, Korean interface support
-- **Video Processing**: Segment duration, quality preferences, cookie management
-- **TTS Engines**: F5-TTS, Chatterbox, Gemini Live API, Edge TTS, or Google TTS selection
-- **Interface**: Dark/light themes, time format, waveform visualization
-- **Cache Management**: Clear caches and monitor storage usage
-
-## Technical Stack
-
-- **Frontend**: React 18, Styled Components, i18next
-- **Video Rendering**: Remotion 4 with GPU acceleration (Vulkan/OpenGL)
-- **Backend**: Node.js/Express, Python Flask, FastAPI
-- **AI Integration**: Google Gemini API, F5-TTS, Chatterbox TTS
-  , NVIDIA Parakeet (local ASR)
-- **Audio/Video**: FFmpeg, Web Audio API, yt-dlp, Puppeteer
-- **Performance**: React Window virtualization, multi-level caching, hardware acceleration
-
-## Performance Features
-
-- **GPU Acceleration**: Hardware-accelerated video rendering with Vulkan/OpenGL
-- **Virtualized UI**: Only renders visible elements for optimal performance with long videos
-- **Parallel Processing**: Multi-core subtitle generation and video processing
-- **Smart Caching**: Multi-layer cache system for subtitles, videos, and generated content
-- **Optimized Timeline**: Hardware-accelerated canvas visualization with adaptive rendering
-- **Efficient Memory**: Automatic cleanup and smart resource management
-
-## Acknowledgements
-
-### 🎯 Core Technologies
-- **[React](https://reactjs.org/)** - Modern UI framework with hooks and context
-- **[Remotion](https://remotion.dev/)** - Programmatic video creation and rendering
-- **[Node.js](https://nodejs.org/)** - JavaScript runtime for backend services
-- **[Express](https://expressjs.com/)** - Web application framework for Node.js
-
-### 🤖 AI & Machine Learning
-- **[Google Gemini AI](https://deepmind.google/technologies/gemini/)** - Advanced language models for transcription and image generation
-- **[F5-TTS](https://github.com/SWivid/F5-TTS)** - State-of-the-art voice cloning technology
-- **[Chatterbox](https://github.com/resemble-ai/chatterbox)** - High-quality TTS and voice conversion
-- **[Microsoft Edge TTS](https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/)** - Neural text-to-speech service
-- **[Google Text-to-Speech](https://cloud.google.com/text-to-speech)** - Cloud-based speech synthesis
- - NVIDIA Parakeet (local ASR)
-
-### 🎬 Video & Audio Processing
-- **[FFmpeg](https://ffmpeg.org/)** - Comprehensive multimedia framework
-- **[yt-dlp](https://github.com/yt-dlp/yt-dlp)** - Universal video downloader for 1000+ platforms
-- **[Puppeteer](https://pptr.dev/)** - Headless Chrome control for web scraping
-
-### 🎨 UI & Visualization
-- **[Styled Components](https://styled-components.com/)** - CSS-in-JS styling solution
-- **[React Router](https://reactrouter.com/)** - Declarative routing for React
-- **[React Window](https://github.com/bvaughn/react-window)** - Efficient virtualization for large lists
-- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon libraries for React
-- **HTML5 Canvas** - Hardware-accelerated timeline visualization
-
-### 🌐 Internationalization & Accessibility
-- **[i18next](https://www.i18next.com/)** - Internationalization framework
-- **[React i18next](https://react.i18next.com/)** - React integration for i18next
-- **Material 3 Expressive** - Modern design principles and accessibility standards
-
-### 🔧 Development & Build Tools
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript development
-- **[Create React App](https://create-react-app.dev/)** - React application scaffolding
-- **[Concurrently](https://github.com/open-cli-tools/concurrently)** - Multi-service development environment
-- **[Cross-env](https://github.com/kentcdodds/cross-env)** - Cross-platform environment variables
-
-### 📦 Package Management & Deployment
-- **[npm](https://www.npmjs.com/)** - Package manager for JavaScript
-- **[uv](https://github.com/astral-sh/uv)** - Fast Python package installer and resolver
-- **[Python](https://www.python.org/)** - Backend services for AI processing
-
-### 🙏 Special Thanks
-- **Open source community** for maintaining these incredible tools
-- **Google DeepMind** for advancing AI accessibility
-- **Remotion team** for revolutionizing programmatic video creation
-- **F5-TTS contributors** for open-source voice cloning technology
-- **All beta testers and contributors** who helped improve this application
-
-
-
-## License
-
-MIT License
-
-Copyright (c) 2025 Oneclick Subtitles Generator
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+---
